@@ -10,31 +10,18 @@ package analisadorlexico;
  * @author Evelyn
  */
 public class Float implements AFD{
-    public String getInteger(char current_char){
-    String result="";
-    while(current_char != '!' && Character.isDigit(current_char)){
-        result += current_char;
-        //System.out.println(result);
-        break;
-    }
-    return result;
-}
     
     @Override
     public Token processa(int pos, String texto){
-        //System.out.println(pos);
-        //System.out.println(texto);
-        char current_char=texto.charAt(pos);
-        //System.out.println(current_char);
-
-        
-        if (Character.isDigit(current_char)){
-            String inteiro=getInteger(current_char);
-            //System.out.println("\n");
-            //System.out.println(teste);
-
-           int tamanho=inteiro.length();
-        return new Token("INTEGER", inteiro,tamanho);
+    String split[]=null;       
+    split=texto.split(" "); 
+    
+    for (int i=0;i<=split.length;i++){
+        System.out.println(split[i]);
+         if(split[i].contains(".") && (split[i].contains("0")||split[i].contains("1")||split[i].contains("2")||split[i].contains("3")||split[i].contains("4")||split[i].contains("5")||split[i].contains("6")||split[i].contains("7")||split[i].contains("8")||split[i].contains("9"))){
+           int tamanho=split[i].length();
+           return new Token("FLOAT", split[i],tamanho);
+    }
     }
         
         return null;

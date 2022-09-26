@@ -12,6 +12,7 @@ public class Menos implements AFD{
     @Override
     
     public Token processa(int pos, String texto){
+        System.out.println(pos);
         char current_char=texto.charAt(pos);
         if (current_char=='-'){
             return new Token("MINUS","-",1);

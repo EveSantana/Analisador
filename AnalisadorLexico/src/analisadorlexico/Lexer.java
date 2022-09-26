@@ -23,8 +23,14 @@ public class Lexer {
         afds=new ArrayList<>();
         afds.add(new Plus());
         afds.add(new Menos());
-        afds.add(new Integer());
-        afds.add(new Letra());
+        afds.add(new Mul());
+        afds.add(new Div());
+        afds.add(new LParen());
+        afds.add(new DParen());
+        //afds.add(new Integer());
+       // afds.add(new Letra());
+        afds.add(new Float());
+        
         //afds.add(new FloatReservada());
         
         
@@ -130,7 +136,7 @@ public class Lexer {
         return new Token("MINUS", "-",-1);
     }*/
 
-    if (current_char == '*'){
+   /* if (current_char == '*'){
         advance(1);
         return new Token("MUL", "*",-1);
  }
@@ -148,7 +154,7 @@ public class Lexer {
     if (current_char == ')'){
         advance(1);
         return new Token("RPAREN", ")",-1);
-    }
+    }*/
 
     error();
     }
